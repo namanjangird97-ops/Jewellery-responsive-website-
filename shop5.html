@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Collection | Aurum Gems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C5A059;
+            --black: #121212;
+            --white: #ffffff;
+            --light-gray: #f4f4f4;
+            --border: #e0e0e0;
+            --transition: all 0.4s ease;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: var(--white);
+            color: var(--black);
+        }
+
+        /* Header (Same as index) */
+        header {
+            background: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 22px;
+            letter-spacing: 3px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--black);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-left: 25px;
+        }
+
+        /* Shop Layout */
+        .shop-container {
+            display: flex;
+            padding: 50px 5%;
+            gap: 30px;
+        }
+
+        /* Sidebar Filters */
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0;
+        }
+
+        .filter-group {
+            margin-bottom: 30px;
+        }
+
+        .filter-group h4 {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            font-size: 16px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .filter-group ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .filter-group li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-group li:hover { color: var(--gold); }
+
+        /* Product Grid */
+        .main-content {
+            flex-grow: 1;
+        }
+
+        .shop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Premium Product Card */
+        .shop-item {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            background: var(--light-gray);
+        }
+
+        .shop-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .shop-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .add-to-cart-overlay {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.9);
+            color: white;
+            padding: 15px 0;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .shop-item:hover .add-to-cart-overlay {
+            bottom: 0;
+        }
+
+        .shop-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 400;
+            margin: 15px 0 5px;
+        }
+
+        .shop-item .price {
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .shop-container { flex-direction: column; }
+            .sidebar { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Aurum Gems</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop5.html" style="color: var(--gold);">Shop</a>
+            <a href="cart8.html">Cart</a>
+        </nav>
+    </header>
+
+    <div class="shop-container">
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h4>Categories</h4>
+                <ul>
+                    <li>Rings</li>
+                    <li>Necklaces</li>
+                    <li>Earrings</li>
+                    <li>Bracelets</li>
+                </ul>
+            </div>
+            <div class="filter-group">
+                <h4>Material</h4>
+                <ul>
+                    <li>18k Gold</li>
+                    <li>Sterling Silver</li>
+                    <li>Platinum</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="shop-header">
+                <span style="font-size: 14px; color: #777;">Showing 1–9 of 24 results</span>
+                <select style="padding: 5px; border: 1px solid var(--border);">
+                    <option>Default Sorting</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
+
+           <div class="product-grid">
+    <div class="shop-item">
+        <div class="img-container">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3f876?q=80&w=600" alt="Diamond Ring">
+            <div class="add-to-cart-overlay" onclick="addToCart('Solitaire Diamond Ring', 1299, 'https://images.unsplash.com/photo-1605100804763-247f67b3f876?q=80&w=600')">Add to Cart</div>
+        </div>
+        <h3>Solitaire Diamond Ring</h3>
+        <p class="price">$1,299.00</p>
+    </div>
+
+    <div class="shop-item">
+        <div class="img-container">
+            <img src="https://images.unsplash.com/photo-1599643478518-a744c5b70452?q=80&w=600" alt="Pearl Necklace">
+            <div class="add-to-cart-overlay" onclick="addToCart('South Sea Pearl Necklace', 850, 'https://images.unsplash.com/photo-1599643478518-a744c5b70452?q=80&w=600')">Add to Cart</div>
+        </div>
+        <h3>South Sea Pearl Necklace</h3>
+        <p class="price">$850.00</p>
+    </div>
+
+    <div class="shop-item">
+        <div class="img-container">
+            <img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=600" alt="Gold Earrings">
+            <div class="add-to-cart-overlay" onclick="addToCart('Vintage Gold Studs', 450, 'https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=600')">Add to Cart</div>
+        </div>
+        <h3>Vintage Gold Studs</h3>
+        <p class="price">$450.00</p>
+    </div>
+</div>
+                
+                </div>
+        </main>
+    </div>
+
+    <footer style="background: #121212; color: white; text-align: center; padding: 40px; margin-top: 50px;">
+        <p>&copy; 2025 AURUM GEMS | THE ART OF LUXURY</p>
+    </footer>
+
+
+<script>
+function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+    
+    // Naya item object
+    let item = { name, price, image };
+    
+    // Cart mein save karein
+    cart.push(item);
+    localStorage.setItem('myCart', JSON.stringify(cart));
+    
+    alert(name + " added to your selection!");
+}
+</script>
+</body>
+</html>

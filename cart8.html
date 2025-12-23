@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Selection | Aurum Gems</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C5A059;
+            --black: #121212;
+            --white: #ffffff;
+            --light-gray: #f9f9f9;
+            --border: #eeeeee;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            margin: 0;
+            color: var(--black);
+        }
+
+        /* Header */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 22px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        /* Cart Section */
+        .cart-wrapper {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .cart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        /* Cart Items List */
+        .cart-items {
+            border-top: 1px solid var(--border);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .item-img {
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            background: var(--light-gray);
+        }
+
+        .item-details {
+            flex-grow: 1;
+            padding-left: 30px;
+        }
+
+        .item-details h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 0 0 10px;
+            font-weight: 400;
+        }
+
+        .item-price {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #999;
+            cursor: pointer;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+        }
+
+        /* Cart Summary (Right Side) */
+        .cart-summary {
+            background: var(--light-gray);
+            padding: 35px;
+            height: fit-content;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .total-row {
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--black);
+            color: white;
+            border: none;
+            padding: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: var(--gold);
+        }
+
+        @media (max-width: 900px) {
+            .cart-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Aurum Gems</a>
+        <nav>
+            <a href="shop.html" style="text-decoration: none; color: black; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">Continue Shopping</a>
+        </nav>
+    </header>
+
+    <div class="cart-wrapper">
+        <h1>Your Selection</h1>
+
+        <div class="cart-container">
+            <div class="cart-items">
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3f876?q=80&w=500" class="item-img" alt="Ring">
+                    <div class="item-details">
+                        <h3>Solitaire Diamond Ring</h3>
+                        <div class="item-price">$1,299.00</div>
+                        <button class="remove-btn">Remove</button>
+                    </div>
+                </div>
+
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a744c5b70452?q=80&w=500" class="item-img" alt="Necklace">
+                    <div class="item-details">
+                        <h3>Pearl String Necklace</h3>
+                        <div class="item-price">$850.00</div>
+                        <button class="remove-btn">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 24px; margin-top: 0;">Summary</h2>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$2,149.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>Complimentary</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span>$2,149.00</span>
+                </div>
+                
+                <a href="payment.html" style="text-decoration: none;">
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                </a>
+
+                <p style="font-size: 11px; color: #777; text-align: center; margin-top: 20px;">
+                    Secure payment processed by Aurum Gems.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px; font-size: 12px; letter-spacing: 1px; color: #999;">
+        &copy; 2025 AURUM GEMS | FINE JEWELLERY
+    </footer>
+
+</body>
+</html>
