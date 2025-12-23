@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery Store - Inspired by CaratLane</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Optional: For enhanced responsiveness -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37; /* Gold color */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: #d4af37;
+        }
+        .search-cart {
+            display: flex;
+            gap: 10px;
+        }
+        .search-cart input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #d4af37;
+            color: #fff;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+        .hero-slider {
+            display: flex;
+            width: 300%; /* For 3 slides */
+            animation: slide 9s infinite;
+        }
+        .slide {
+            width: 33.33%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .slide h1 {
+            font-size: 48px;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Categories */
+        .categories {
+            padding: 40px 0;
+            background-color: #fff;
+        }
+        .categories h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .category-item {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .category-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Featured Products */
+        .products {
+            padding: 40px 0;
+            background-color: #f8f8f8;
+        }
+        .products h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+        .product-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        .price {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        .add-to-cart {
+            background-color: #d4af37;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .add-to-cart:hover {
+            background-color: #b8860b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        footer a {
+            color: #d4af37;
+            text-decoration: none;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero .slide h1 {
+                font-size: 32px;
+            }
+            .category-grid, .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Jewellery Store</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-cart">
+                <input type="text" placeholder="Search...">
+                <div class="cart-icon">
+                    🛒
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="slide" style="background-image: url('https://source.unsplash.com/featured/?jewelry,gold');">
+                <h1>Timeless Elegance</h1>
+            </div>
+            <div class="slide" style="background-image: url('https://source.unsplash.com/featured/?rings,diamond');">
+                <h1>Sparkle in Style</h1>
+            </div>
+            <div class="slide" style="background-image: url('https://source.unsplash.com/featured/?necklace,pearl');">
+                <h1>Handcrafted Beauty</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2>Shop by Category</h2>
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="https://source.unsplash.com/featured/?rings" alt="Rings">
+                    <h3>Rings</h3>
+                </div>
+                <div class="category-item">
+                    <img src="https://source.unsplash.com/featured/?necklaces" alt="Necklaces">
+                    <h3>Necklaces</h3>
+                </div>
+                <div class="category-item">
+                    <img src="https://source.unsplash.com/featured/?earrings" alt="Earrings">
+                    <h3>Earrings</h3>
+                </div>
+                <div class="category-item">
+                    <img src="https://source.unsplash.com/featured/?bracelets" alt="Bracelets">
+                    <h3>Bracelets</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="https://source.unsplash.com/featured/?gold-ring" alt="Gold Ring">
+                    <div class="product-info">
+                        <h3>Gold Diamond Ring</h3>
+                        <p class="price">$299</p>
+                        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="https://source.unsplash.com/featured/?pearl-necklace" alt="Pearl Necklace">
+                    <div class="product-info">
+                        <h3>Pearl Necklace</h3>
+                        <p class="price">$199</p>
+                        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="https://source.unsplash.com/featured/?diamond-earrings" alt="Diamond Earrings">
+                    <div class="product-info">
+                        <h3>Diamond Earrings</h3>
+                        <p class="price">$399</p>
+                        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-item">
+                    <img src="https://source.unsplash.com/featured/?silver-bracelet" alt="Silver Bracelet">
+                    <div class="product-info">
+                        <h3>Silver Bracelet</h3>
+                        <p class="price">$149</p>
+                        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Jewellery Store. All rights reserved.</p>
+            <div>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple cart counter (demo only)
+        let cartCount = 0;
+        function addToCart() {
+            cartCount++;
+            document.querySelector('.cart-count').textContent = cartCount;
+            alert('Item added to cart!');
+        }
+    </script>
+</body>
+</html>
